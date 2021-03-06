@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="application-name" content="桜フォトフレーム">
+        <meta name="author" content="Elsammit">
+        <meta name="description" content="背景に桜が舞っているフォトフレームです。5枚の画像を切り替えて表示。春を感じた自動フォトフレームをどうぞ">
+        <meta name="keywords" content="HTML,CSS,JavaScript">
+        <title>桜舞い散る</title>
+        <link rel="icon" type="image/png" href="image/sakura_tree.png">
+    </head>
+    <body>
+        <link rel="stylesheet" href="sakura.css">
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <script src="sakura.js"></script>
+        <div id="photo">
+            <ul id="slideshow">
+                <li class="current"><img src="image/DSC04587.JPG" alt="A" class="photoImg" id="photoNum1"></li>
+                <li><img src="image/DSC04583.JPG" alt="B" class="photoImg" id="photoNum2"></li>
+                <li><img src="image/DSC04580.JPG" alt="C" class="photoImg"  id="photoNum3"></li>
+                <li><img src="image/DSC04474.JPG" alt="D" class="photoImg" id="photoNum4"></li>
+                <li><img src="image/DSC04530.JPG" alt="E" class="photoImg"  id="photoNum5"></li>
+            </ul>
+            <div id="selectedImg">
+                <div id="select1" onclick="ImgSelect(1)"></div>
+                <div id="select2" onclick="ImgSelect(2)"></div>
+                <div id="select3" onclick="ImgSelect(3)"></div>
+                <div id="select4" onclick="ImgSelect(4)"></div>
+                <div id="select5" onclick="ImgSelect(5)"></div>
+            </div>
+            <div id="inputlist">
+                <div class="file_button">
+                    画像1
+                    <input class="file_input" type="file" id="inputFile1" accept="image/*" onchange="test(this, 1);">
+                </div>
+                <div class="file_button">
+                    画像2
+                    <input class="file_input" type="file" id="inputFile2" accept="image/*" onchange="test(this, 2);">
+                </div>
+                <div class="file_button">
+                    画像3
+                    <input class="file_input" type="file" id="inputFile3" accept="image/*" onchange="test(this, 3);">
+                </div>
+                <div class="file_button">
+                    画像4
+                    <input class="file_input" type="file" id="inputFile4" accept="image/*" onchange="test(this, 4);">
+                </div>
+                <div class="file_button">
+                    画像5
+                    <input class="file_input" type="file" id="inputFile5" accept="image/*" onchange="test(this, 5);">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
