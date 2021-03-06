@@ -1,4 +1,5 @@
 const maxNum = 50;
+const width_padding = 60;
 
 (function(d,b,w){
     var q = d.createElement('div')
@@ -21,7 +22,7 @@ const maxNum = 50;
 		var m = d.createElement('div'); // div 用意
 		m.id = 'hanabira'+i; // 花びらの id
 		top[i] = Math.random()*-1000+u; // 花びらの最初の top
-		left[i] = Math.random()*w.innerWidth; // 花びらの最初の left
+		left[i] = Math.random()*w.innerWidth - width_padding; // 花びらの最初の left
 
         var clss = 'hana type'+(Math.floor(Math.random()*6)+1);
 		m.setAttribute('class',clss); // class を追加
@@ -48,7 +49,7 @@ const maxNum = 50;
 				}
 			}else{
 				top[i] = u-40;
-				left[i] = Math.random()*w.innerWidth;
+				left[i] = Math.random()*w.innerWidth - width_padding;
 			}
 			top[i] = top[i]+speed[i];
 			group[i].style.top = top[i]+'px';
@@ -74,7 +75,7 @@ function selectImgcircle(count){
 var count = 0;
 (function($){
     $(document).ready(function(){
-      var slides = $("#slideshow > li");
+      var slides = $(".slideshow > li");
       
       function toggle_slide(){
         count = (count + 1) % 5;
@@ -89,7 +90,7 @@ var count = 0;
 function ImgSelect(inpt){
     console.log(inpt);
     count = inpt-1;
-    var slides = $("#slideshow > li");
+    var slides = $(".slideshow > li");
     slides.removeClass("current").eq(count).addClass("current");
     selectImgcircle(count);
 }

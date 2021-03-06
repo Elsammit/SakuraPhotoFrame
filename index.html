@@ -5,6 +5,7 @@
         <meta name="author" content="Elsammit">
         <meta name="description" content="背景に桜が舞っているフォトフレームです。5枚の画像を切り替えて表示。春を感じた自動フォトフレームをどうぞ">
         <meta name="keywords" content="HTML,CSS,JavaScript">
+        <meta name="viewport" content="width=device-width">
         <title>桜舞い散る</title>
         <link rel="icon" type="image/png" href="image/sakura_tree.png">
     </head>
@@ -13,7 +14,7 @@
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
         <script src="sakura.js"></script>
         <div id="photo">
-            <ul id="slideshow">
+            <ul class="slideshow">
                 <li class="current"><img src="image/Photo1.JPG" alt="A" class="photoImg" id="photoNum1"></li>
                 <li><img src="image/Photo2.JPG" alt="B" class="photoImg" id="photoNum2"></li>
                 <li><img src="image/Photo3.JPG" alt="C" class="photoImg"  id="photoNum3"></li>
