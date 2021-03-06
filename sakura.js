@@ -81,7 +81,7 @@ var count = 0;
         slides.removeClass("current").eq(count).addClass("current");
         selectImgcircle(count);
       }
-      setInterval(toggle_slide, 2000);
+      setInterval(toggle_slide, 5000);
 
     });  
 })(jQuery);
