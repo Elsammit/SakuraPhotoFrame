@@ -304,8 +304,8 @@ body{
     }
     .photoImg{
         width:548px;
-        height:280px; 
-        top:35px;   
+        height:320px; 
+        top:15px;   
     }
 
     #select1{
@@ -334,12 +334,12 @@ body{
 @media screen and (max-width:480px){
     .slideshow{
         width:320px;
-        height:185px;
+        height:220px;
     }
     .photoImg{
         width:274px;
-        height:140px; 
-        top:15px;   
+        height:180px; 
+        top:10px;   
     }
 
     #select1{
