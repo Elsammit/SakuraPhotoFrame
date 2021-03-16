@@ -60,33 +60,47 @@ const width_padding = 60;
 
 })(window.document,window.document.body,window);
 
+/*
+●印付与関数.
+どのページを表示しているのかを示す●を表示.
+*/
 function selectImgcircle(count){
+    // 今回は5ページ分のスライドショー表示のため1～5を指定.
     for(var i=1;i<=5;i++){
-        var buf = "select" + i;
-        document.getElementById(buf).style.border = "1px solid rgb(206, 202, 202)";
-        document.getElementById(buf).style.backgroundColor = "rgb(206, 202, 202)";
+        var buf = "select" + i; // select1 ～select5を指定.
+        document.getElementById(buf).style.border = "1px solid rgb(206, 202, 202)"; // 背景色やボーダー色をrgb(206, 202, 202)に指定.
+        document.getElementById(buf).style.backgroundColor = "rgb(206, 202, 202)";  // 背景色やボーダー色をrgb(206, 202, 202)に指定.
     }
     
-    var selectID = "select"+(count+1);
-    document.getElementById(selectID).style.border = "1px solid black";
-    document.getElementById(selectID).style.backgroundColor = "black";
+    var selectID = "select"+(count+1);                                              // 現在表示しているcount値を指定(countは0 ～ 4なので+1している)
+    document.getElementById(selectID).style.border = "1px solid black";             // 選択している●の背景やボーダー色をblackに指定.
+    document.getElementById(selectID).style.backgroundColor = "black";              // 選択している●の背景やボーダー色をblackに指定.
 }
 
 var count = 0;
+
+/*
+画像スライドショー.
+一定時間毎に表示する画像の切り替え.
+*/
 (function($){
     $(document).ready(function(){
-      var slides = $(".slideshow > li");
+      var slides = $(".slideshow > li");    // slideshowクラス配下のliをセット.
       
+      // 画像切り替え関数.
       function toggle_slide(){
         count = (count + 1) % 5;
-        slides.removeClass("current").eq(count).addClass("current");
-        selectImgcircle(count);
+        slides.removeClass("current").eq(count).addClass("current");    // 現在セットされているcurrentクラスを削除し次に表示させるimgタグにcurrentタグを付与.
+        selectImgcircle(count);                                         // ●印付与関数コール.
       }
-      setInterval(toggle_slide, 5000);
+      setInterval(toggle_slide, 5000);                                  // 定期処理実行.
 
     });  
 })(jQuery);
 
+/*
+選択した●印の画像を表示.
+*/
 function ImgSelect(inpt){
     console.log(inpt);
     count = inpt-1;
@@ -95,33 +109,16 @@ function ImgSelect(inpt){
     selectImgcircle(count);
 }
 
-function test(obj, Num){
-    var fileReader = new FileReader();
-    var inputFile = "inputFile" + Num;
+/*
+選択した画像番号の画像を切り替え.
+*/
+function changeImages(obj, Num){
+    var fileReader = new FileReader();  // フォルダを開き画像選択させる.
+    var inputFile = "inputFile" + Num;  // 選択した画像番号を指定.
     fileReader.onload = (function(){
         var photoNum = "photoNum" + Num;
-        document.getElementById(photoNum).src = fileReader.result;
+        document.getElementById(photoNum).src = fileReader.result;  
     });
     console.log(document.getElementById(inputFile).files[0]);
-    fileReader.readAsDataURL(obj.files[0]);
-}
-
-function changeImages(){
-    var fileReader1 = new FileReader();
-    fileReader1.onload = (function(){
-        document.getElementById("photoNum1").src = fileReader1.result;
-    });
-    fileReader1.readAsDataURL(document.getElementById("inputFile1").files[0]);
-    
-    var fileReader2 = new FileReader();
-    fileReader2.onload = (function(){
-        document.getElementById("photoNum2").src = fileReader2.result;
-    });
-    fileReader2.readAsDataURL(document.getElementById("inputFile2").files[0]);
-    
-    var fileReader3 = new FileReader();
-    fileReader3.onload = (function(){
-        document.getElementById("photoNum3").src = fileReader3.result;
-    });
-    fileReader3.readAsDataURL(document.getElementById("inputFile3").files[0]);
+    fileReader.readAsDataURL(obj.files[0]);  // 選択した画像をセット.
 }

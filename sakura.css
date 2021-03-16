@@ -2,12 +2,18 @@ html,body{
     overflow-x:hidden;
 }
 
+/*
+背景画像を表示.
+*/
 body{
     background-image: url(image/bg_namikimichi1_sakura.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
+/*
+桜の花びら作成
+*/
 .hana{
     position:absolute;
     height:0;
@@ -34,6 +40,9 @@ body{
 	transform: rotate(15deg);
 }
 
+/*
+花びらタイプ1の定義.
+*/
 .type1{
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
@@ -41,7 +50,13 @@ body{
     border-color:#ffecf7;
     animation:v1 6s infinite;
 }
+.type1::after{
+    border-color:#ffecf7;
+}
 
+/*
+花びらタイプ2の定義.
+*/
 .type2{
     -webkit-transform: rotate(60deg);
     -ms-transform: rotate(60deg);
@@ -49,7 +64,13 @@ body{
     border-color:#ffdbf0;
     animation:v2 6s infinite;
 }
+.type2::after{
+    border-color:#ffdbf0;
+}
 
+/*
+花びらタイプ3の定義.
+*/
 .type3{
     -webkit-transform: rotate(120deg);
     -ms-transform: rotate(120deg);
@@ -57,7 +78,13 @@ body{
     border-color:#febae2;
     animation:v3 5s infinite;
 }
+.type3::after{
+    border-color:#febae2;
+}
 
+/*
+花びらタイプ4の定義.
+*/
 .type4{
     -webkit-transform: rotate(180deg);
     -ms-transform: rotate(180deg);
@@ -65,7 +92,13 @@ body{
     border-color:#fea9db;
     animation:v4 5s infinite;
 }
+.type4::after{
+    border-color:#fea9db;
+}
 
+/*
+花びらタイプ5の定義.
+*/
 .type5{
     -webkit-transform: rotate(240deg);
     -ms-transform: rotate(240deg);
@@ -73,7 +106,13 @@ body{
     border-color:#fd77c6;
     animation:v5 4s infinite;
 }
+.type5::after{
+    border-color:#fd77c6;
+}
 
+/*
+花びらタイプ6の定義.
+*/
 .type6{
     -webkit-transform: rotate(360deg);
     -ms-transform: rotate(360deg);
@@ -81,62 +120,67 @@ body{
     border-color:#fd66bf;
     animation:v6 4s infinite;
 }
-
-.type1::after{
-    border-color:#ffecf7;
-}
-
-.type2::after{
-    border-color:#ffdbf0;
-}
-
-.type3::after{
-    border-color:#febae2;
-}
-
-.type4::after{
-    border-color:#fea9db;
-}
-
-.type5::after{
-    border-color:#fd77c6;
-}
-
 .type6::after{
     border-color:#fd66bf;
 }
 
+/*
+花びらタイプ1の花びらの回転動作.
+*/
 @keyframes v1{
 	0%{transform: rotate(0deg);}
 	50%{transform: rotate(270deg);}
 	100%{transform: rotate(1deg);}
 }
+
+/*
+花びらタイプ2の花びらの回転動作.
+*/
 @keyframes v2{
 	0%{transform: rotate(-90deg);}
 	50%{transform: rotate(-360deg);}
 	100%{transform: rotate(-89deg);}
 }
+
+/*
+花びらタイプ3の花びらの回転動作.
+*/
 @keyframes v3{
 	0%{transform: rotate(0deg);}
 	50%{transform: rotate(270deg);}
 	100%{transform: rotate(1deg);}
 }
+
+/*
+花びらタイプ4の花びらの回転動作.
+*/
 @keyframes v4{
 	0%{transform: rotate(-90deg);}
 	50%{transform: rotate(-360deg);}
 	100%{transform: rotate(-89deg);}
 }
+
+/*
+花びらタイプ5の花びらの回転動作.
+*/
 @keyframes v5{
 	0%{transform: rotate(0deg);}
 	50%{transform: rotate(270deg);}
 	100%{transform: rotate(1deg);}
 }
+
+/*
+花びらタイプ6の花びらの回転動作.
+*/
 @keyframes v6{
 	0%{transform: rotate(-90deg);}
 	50%{transform: rotate(-360deg);}
 	100%{transform: rotate(-89deg);}
 }
 
+/*
+画像切り替えボタン領域の指定.
+*/
 #inputlist{
     position:absolute;
     top:1500px;
@@ -148,12 +192,18 @@ body{
     text-align: center;
 }
 
+/*
+画像フレーム表示位置指定.
+*/
 #photo{
     transition: opacity 1s;
     margin-top:10px;
     position: relative;
 }
 
+/*
+画像の表示位置指定.
+*/
 .photoImg{
     position:absolute;
     top:33px;
@@ -165,10 +215,16 @@ body{
     border:10px solid black;
 }
 
+/*
+画像表示位置を中央に設定.
+*/
 #photoList{
     text-align: center;
 }
 
+/*
+スライドショーとして表示する画像のフレームとして木目作成.
+*/
 .slideshow {
     z-index:1000;
     list-style-type: none;
@@ -195,17 +251,26 @@ body{
       #d09352 1%
     );
 }
-  
+
+/*
+currentクラス以外を非表示.
+*/
 .slideshow > li {
     opacity: 0;
     transition: opacity 1s;
 }
-  
+
+/*
+currentクラスを表示.
+*/
 .slideshow > li.current {
     opacity: 1;
 }
 
-#select1{
+/*
+1つ目の●に対するID定義.
+*/
+#select1,#select2,#select3,#select4,#select5{
     border:1px solid black;
     background-color: black;
     width: 15px;
@@ -218,6 +283,9 @@ body{
     margin:auto;
 }
 
+/*
+2つ目の●に対するID定義.
+*/
 #select2{
     border:1px solid rgb(206, 202, 202);
     background-color: rgb(206, 202, 202);
@@ -231,6 +299,9 @@ body{
     margin:auto;
 }
 
+/*
+3つ目の●に対するID定義.
+*/
 #select3{
     border:1px solid rgb(206, 202, 202);
     background-color: rgb(206, 202, 202);
@@ -244,6 +315,9 @@ body{
     margin:auto;
 }
 
+/*
+4つ目の●に対するID定義.
+*/
 #select4{
     border:1px solid rgb(206, 202, 202);
     background-color: rgb(206, 202, 202);
@@ -257,6 +331,9 @@ body{
     margin:auto;
 }
 
+/*
+5つ目の●に対するID定義.
+*/
 #select5{
     border:1px solid rgb(206, 202, 202);
     background-color: rgb(206, 202, 202);
@@ -270,6 +347,9 @@ body{
     margin:auto;
 }
 
+/*
+画像切り替えボタン形成
+*/
 .file_button {
     display: inline-block;
     position: relative;
@@ -283,10 +363,19 @@ body{
     -moz-transition: .3s ease;
     -o-transition: .3s ease;
     transition: .3s ease;
+    
 }
+
+/*
+画像切り替えボタンホバー時.
+*/
 .file_button:hover {
     background-color: #197a01;
 }
+
+/*
+画像切り替えボタン.
+*/
 .file_input {
     position: absolute;
     top: 0;
@@ -297,6 +386,9 @@ body{
     cursor: pointer;
 }
 
+/*
+レスポンシブ対応(タブレット用).
+*/
 @media screen and (max-width:959px){
     .slideshow{
         width:640px;
@@ -331,6 +423,9 @@ body{
     }
 }
 
+/*
+レスポンシブ対応(スマホ用).
+*/
 @media screen and (max-width:480px){
     .slideshow{
         width:320px;
