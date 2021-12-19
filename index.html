@@ -13,8 +13,13 @@
     <body>
         <link rel="stylesheet" href="sakura.css">
         <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script src="sakura.js"></script>
+        <audio loop id="music">
+            <source  src="music/OneLove.mp3" type="audio/mp3">
+        </audio>
         <div id="photo">
+            <p class="musicStpse"></p>
+            <img src='image/StartIcon.png' alt="" id="on_fade">
+            <img src='image/Pause.png' alt="" id="on_fade_Pause">
             <ul class="slideshow">
                 <li class="current"><img src="image/Photo1.JPG" alt="A" class="photoImg" id="photoNum1"></li>
                 <li><img src="image/Photo2.JPG" alt="B" class="photoImg" id="photoNum2"></li>
@@ -52,5 +57,6 @@
                 </div>
             </div>
         </div>
+        <script src="sakura.js"></script>
     </body>
 </html>

@@ -8,7 +8,7 @@ const width_padding = 60;
 
     var h = w.innerHeight;
     var u = d.documentElement.scrollTop || b.scrollTop;
-    var z = 100;
+    var z = 10000;
     var top = new Array();
     var left = new Array();
     var yura = new Array();
@@ -89,9 +89,12 @@ var count = 0;
       
       // 画像切り替え関数.
       function toggle_slide(){
-        count = (count + 1) % 5;
-        slides.removeClass("current").eq(count).addClass("current");    // 現在セットされているcurrentクラスを削除し次に表示させるimgタグにcurrentタグを付与.
-        selectImgcircle(count);                                         // ●印付与関数コール.
+        let music = document.getElementById("music");
+        if(!music.paused){
+            count = (count + 1) % 5;
+            slides.removeClass("current").eq(count).addClass("current");    // 現在セットされているcurrentクラスを削除し次に表示させるimgタグにcurrentタグを付与.
+            selectImgcircle(count);                                         // ●印付与関数コール.
+        }
       }
       setInterval(toggle_slide, 5000);                                  // 定期処理実行.
 
@@ -122,3 +125,21 @@ function changeImages(obj, Num){
     console.log(document.getElementById(inputFile).files[0]);
     fileReader.readAsDataURL(obj.files[0]);  // 選択した画像をセット.
 }
+
+$(".musicStpse").click(function(event) {
+    let music = document.getElementById("music");
+    if(!music.paused){
+      music.pause();
+      $('#on_fade').removeClass('on_fade');
+      $('#on_fade_Pause').removeClass('on_hidden');
+      $('#on_fade_Pause').addClass('on_fade');
+      $('#on_fade').addClass('on_hidden');
+    }else{
+      $('#on_fade').removeClass('on_hidden');
+      $('#on_fade').addClass('on_fade');
+      
+      $('#on_fade_Pause').removeClass('on_fade');
+      $('#on_fade_Pause').addClass('on_hidden');
+      music.play();
+    }
+  });

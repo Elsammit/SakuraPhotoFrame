@@ -192,13 +192,21 @@ body{
     text-align: center;
 }
 
+#music{
+    height:50px;
+    width: 50px;
+    position: fixed;
+    right:0px;
+    bottom: 0px;
+}
+
 /*
 画像フレーム表示位置指定.
 */
 #photo{
     transition: opacity 1s;
-    margin-top:10px;
     position: relative;
+    z-index: 2;
 }
 
 /*
@@ -206,7 +214,7 @@ body{
 */
 .photoImg{
     position:absolute;
-    top:33px;
+    top:10px;
     left:0;
     right:0;
     margin:auto;
@@ -215,6 +223,16 @@ body{
     border:10px solid black;
 }
 
+.musicStpse{
+    position:absolute;
+    top:60px;
+    left:0;
+    right:0;
+    margin:auto;
+    width:808px;
+    height:540px;
+    z-index: 10000;
+}
 /*
 画像表示位置を中央に設定.
 */
@@ -226,7 +244,7 @@ body{
 スライドショーとして表示する画像のフレームとして木目作成.
 */
 .slideshow {
-    z-index:1000;
+    z-index:5000;
     list-style-type: none;
     pointer-events: none;
     width:900px;
@@ -265,6 +283,7 @@ currentクラスを表示.
 */
 .slideshow > li.current {
     opacity: 1;
+    z-index: 3000;
 }
 
 /*
@@ -385,6 +404,47 @@ currentクラスを表示.
     opacity: 0;
     cursor: pointer;
 }
+
+.on_fade{
+    z-index:6500;
+    opacity: 1;
+    opacity:0;
+    transition: opacity 1s;
+}
+
+#on_fade{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top:300px;
+    left:600px;
+}
+
+#on_fade_Pause{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top:300px;
+    left:600px;
+}
+
+.on_hidden{
+    width: 10px;
+    height: 10px;
+    z-index:1000;
+    top:300px;
+    left:600px;
+}
+
+@keyframes fadeInAnime{
+    0% {
+      opacity: 1;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
 
 /*
 レスポンシブ対応(タブレット用).
